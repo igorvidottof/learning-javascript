@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <!-- Suppose you want to increase the font of all the paragraphs in your document, how can you do that? -->
+
+  <p>Paragraph 1</p>
+  <p>Paragraph 2</p>
+  <p>Paragraph 3</p>
+  
+  <input type="button" value="Increase Font" onClick="increaseAllPgraphs();">
+  
+  <script>
+    function increaseAllPgraphs() {
+      var paragraphs = document.getElementsByTagName('p'); // it returns an array-like collection with all the tags "p"
+      for(var i=0; i<paragraphs.length; i++) {
+        paragraphs[i].style.fontSize = '24px';
+      }
+    }
+
+    
+  </script>
+
+</body>
+</html>

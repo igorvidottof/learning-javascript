@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .hidden {
+      display: none;
+    }
+    .beautyful {
+      font-size: 20px;
+      color: blue;
+    }
+
+    .shadow {
+      text-shadow: 1px 1px 1px black;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <p id="canSee" class="beautyful" onMouseover="cantSee();">Hey, can you see me?</p>
+
+  <p id="regularText" class="beautyful" onMouseover="addShadow();">Hey, can you see me?</p>
+
+  <script>
+    //this function replace a class 
+    function cantSee() {
+      document.getElementById("canSee").className = 'hidden';
+    }
+
+    //this one adds a new class preserving all the existing classes
+    function addShadow() {
+      document.getElementById("regularText").className += " shadow"; // this space between the first double quote and the class is REQUIRED
+    }
+
+
+  </script>
+</body>
+</html>

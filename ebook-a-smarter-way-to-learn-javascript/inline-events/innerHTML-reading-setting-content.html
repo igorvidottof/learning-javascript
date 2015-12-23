@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <p id="lorem">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. <a href="JavaScript:void(0)" onClick="showLorem();">Click for More</a>
+  </p>
+
+  <div id="citiesList">
+    <p>
+      Add a list of cities by clicking <a href="JavaScript:void(0)" onClick="addList();">here</a>
+    </p>
+  </div>
+  
+  <div id="greeting">
+    <p>Hello, there! Welcome to my website!</p>
+    <a href=""></a>
+    <p></p>
+  </div>
+  
+  <p>What elements are in the div above? <a href="JavaScript:void(0)" onClick="peekAtContent('greeting');">See it</a> by your own.</p>
+  
+  <p>
+    What about this message below? <a href="JavaScript:void(0)" onClick="peekAtContent('divBelow')">See it now</a>
+  </p>
+
+  <div id="divBelow">
+    You don't see me
+    <a href=""></a>
+    <i></i>
+    <p></p>
+    <u></u>
+  </div>
+
+  <script>
+    // replacing a text
+    function showLorem() {
+      var fullLorem = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero illum officiis veritatis, doloribus nobis quae incidunt velit a ipsa qui recusandae facilis assumenda beatae eveniet aperiam sapiente neque eligendi laborum! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati excepturi neque ad dignissimos commodi voluptatum consequuntur iusto, consequatur fuga magni iste suscipit inventore blanditiis praesentium deserunt. Aut adipisci, provident expedita!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum delectus sint nam a maiores veritatis perspiciatis dolorem, fugit temporibus quis omnis, labore quod, impedit incidunt. Voluptas voluptatibus aliquid dolor tenetur.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio suscipit earum nesciunt. Beatae quas dolor laboriosam quaerat nostrum ducimus adipisci! Impedit eius rerum, magnam repellendus inventore quibusdam molestiae accusamus aspernatur.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur nihil explicabo, et obcaecati suscipit eligendi. Necessitatibus dicta voluptates quam ex, dignissimos et repudiandae sint fugit amet, adipisci alias dolore ipsa!';
+      document.getElementById('lorem').innerHTML = fullLorem;
+    }
+
+    // setting (writing) HTML in an element
+    function addList() {
+      var list = '<h2>List of Cities</h2><ul><li>Águas de Santa Bárbara</li><li>Avaré</li><li>Cerqueira</li></ul>';
+      document.getElementById('citiesList').innerHTML = list;
+    }
+
+    // reading a HTML element
+    function peekAtContent(elementId) {
+      var content = document.getElementById(elementId).innerHTML;
+      alert('Here I have ' + content);
+    }
+
+  </script>
+</body>
+</html>

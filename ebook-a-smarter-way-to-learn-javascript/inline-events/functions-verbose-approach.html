@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .bright-theme {
+      color: rgba(50, 50, 50, .7);
+      border: 1px solid black;
+      font-size: 24px;
+    }
+    
+    .dark-theme {
+      color: white;
+      background-color: black;
+      font-size: 24px;
+    }
+  </style>
+
+</head>
+<body>
+  <img src="../img/before-pic.png" id="before" height="300" width="450" onMouseover="swapImg(id, '../img/after-pic.png');">  
+  <a href="http://www.google.com" id="googleUrl" onMouseover="findUrl(id);">What's my address?</a>
+  <p class="bright-theme" id="greeting" onMouseover="changeTheme(id);">How's it going?</p>
+
+  <!-- A more common way to code the function is to break it into two steps -->
+  <script>
+    function swapImg(imgId, newImg) {
+      var currImg = document.getElementById(imgId);
+      currImg.src = newImg;
+    }
+
+    function findUrl(ancId) {
+      var anchor = document.getElementById(ancId);
+      alert(anchor.href);
+    }
+
+    function changeTheme(parId) {
+      var paragraph = document.getElementById(parId);
+      paragraph.className = "dark-theme";
+    }
+  </script>
+</body>
+</html>

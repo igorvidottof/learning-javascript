@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <!-- Instead of get all the Document tags we can get just the ones we want -->
+  
+  <p>Outside the div "texts"</p>
+
+  <div id="texts" style="border: 1px solid black; padding: 15px;">
+    <h2>Div "texts"</h2>
+    <p>Text 1</p>
+    <p>Text 2</p>
+    <p>Text 3</p>
+  </div>
+  
+  <p>Outside the div "texts"</p>
+
+  <input type="button" value="Get all Paragraphs" onClick="getAllParagraphs();">
+  
+  <input type="button" value="Get specific paragraphs" onClick="getSomeParagraphs();">
+
+  <script>
+    //first of all, let's get all the paragraphs in the document
+    function getAllParagraphs() {
+      var allPgraphs = document.getElementsByTagName('p');
+      for(var i=0; i<allPgraphs.length; i++) {
+        alert(allPgraphs[i].innerHTML);
+      }
+    }
+
+    function getSomeParagraphs() {
+      var divTexts = document.getElementById('texts');
+      var textsPgraphs = divTexts.getElementsByTagName('p');
+      for (var i=0; i<textsPgraphs.length; i++) {
+        alert(textsPgraphs[i].innerHTML);
+      }
+    }
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <img src="../img/before-pic.png" id="beforePic" height="300" width="450"  onMouseover="swapPic(id, '../img/after-pic.png');">
+
+  <script>
+    function swapPic(eleId, newPic) {
+      document.getElementById(eleId).src = newPic;
+    }
+  </script>
+</body>
+</html>

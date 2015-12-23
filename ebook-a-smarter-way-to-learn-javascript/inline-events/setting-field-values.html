@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <form>
+    <label for="iZip">ZIP code</label>
+    <input type="text" id="iZip" onBlur="fillCity('iZip', 'iCity');" onFocus="this.style.backgroundColor='yellow';"><br><br>
+    <label for="iCity">City</label>
+    <input type="text" id="iCity">
+  
+    <script>
+      function fillCity(zip, city) {
+        var zipEntered = document.getElementById(zip).value;
+        var cityName;
+        switch(zipEntered) {
+          case '18770000':
+            cityName = 'Águas de Santa Bárbara';
+            break;
+          case '18111000':
+            cityName = 'Avaré';
+            break;
+          case '18000000':
+            cityName = 'Cerqueira César';
+            break;
+        }
+        document.getElementById(city).value = cityName;
+      }
+    </script>
+
+  </form>
+</body>
+</html>

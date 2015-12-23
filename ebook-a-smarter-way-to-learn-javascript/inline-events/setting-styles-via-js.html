@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .clear-float {
+      clear: both;
+    }
+
+    .div-helper {
+      width: 400px;
+      height: 300px;
+    }
+  </style>
+</head>
+<body>
+  <p id="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid quidem, sunt ducimus eos reprehenderit debitis aliquam atque, nobis, sequi eligendi corrupti ullam inventore a blanditiis asperiores ad veniam, vel hic!</p>
+  <input type="button" value="Increase font" onClick="makeItBigger('text');"><br><br>
+  
+  <div id="div1" class="div-helper" style="float: left;" onMouseover="showStyle(id);"></div>
+
+  <span>
+    <img src="../img/before-pic.png" id="myImg" height="300" width="400">
+  </span>
+
+  <br><br>
+
+  <input type="button" value="Float Right" onClick="floatRight('myImg');" style="clear: both; display: block; margin-left: 44%;">
+  
+  <p id="text2">This is a short text just for example</p>
+  <input type="button" value="Increase Margin" onClick="increaseMargin('text2');">
+  
+  <p id="text3" onMouseover="vanishesIt(id);">Now I'm here, and now... (pass the mouse over it)</p>
+
+  <!-- Modifying styles with js-->
+  <script>
+    function makeItBigger(pgraphId) {
+      var paragraph = document.getElementById(pgraphId);
+      paragraph.style.fontSize = '30px';
+    }
+
+    function floatRight(imgId) {
+      var image = document.getElementById(imgId);
+      image.style.cssFloat = 'right';
+    }
+
+    function increaseMargin(pgraphId) {
+      var paragraph = document.getElementById(pgraphId);
+      paragraph.style.margin = '50px';
+    }
+
+    // reading element attributes. Although this statement reads only inline css
+    function showStyle(elemId) {
+      var stylesInline = document.getElementById(elemId).style.cssFloat;
+      alert(stylesInline);
+    }
+    
+    function vanishesIt(elemId) {
+      document.getElementById(elemId).style.visibility = "hidden";
+    }
+  </script>
+</body>
+</html>
