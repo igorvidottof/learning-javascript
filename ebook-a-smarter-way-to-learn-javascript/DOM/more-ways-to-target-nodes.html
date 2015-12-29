@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div id="div1">
+    <div id="div2">
+      <p>Text 1</p>
+      <p id="middle">Text 2</p>
+      <p>Text 3</p>
+    </div>
+  </div>
+
+  <script>
+    //Assuming that there are no junk artifacts in the page
+
+    //targeting a parent of a child node
+    function getParent() {
+      var kidElem = document.getElementById('div2');
+      var dadNode = kidElem.parentNode; // <div id="div1">
+    }
+    
+    //targeting the first and the last child nodes
+    function getFirstChild() {
+      var parentElem = document.getElementById('div2');
+      var theFirstOne = parentElem.firstChild; // <p>Text 1</p>
+    }
+    function getLastChild() {
+      var parentElem = document.getElementById('div2');
+      var theLastOne = parentElem.lastChild; // <p>Text 3</p>
+    }
+
+    //targeting siblings (child nodes of the same level)
+    function getNextSibling() {
+      var pgraphElem = document.getElementById('middle');
+      var nextElem = pgraphElem.nextSibling; // <p>Text 3</p>
+    }
+    function getPrevSibling() {
+      var pgraphElem = document.getElementById('middle');
+      var prevElem = pgraphElem.previousSibling; // <p>Text 1</p>
+    }
+    // if the element doesn't have any next or previous siblings the attribute will be null.
+
+</script>
+</body>
+</html>

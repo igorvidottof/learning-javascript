@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div id="div1" class="div-format">
+    <p>Text 1</p>
+    <img src="#" alt="Just testing">
+    <p>Text 2</p>
+    <img src="#" alt="Just testing">
+    <p>Text 3</p>
+    <img src="#" alt="Just testing">
+    <br>
+    <img src="#" alt="Just testing">
+    <br><br>
+  </div>
+
+  <input type="button" value="Count <p>" onClick="countP();">
+  <input type="button" value="Count <img>" onClick="countImg();">
+
+  <script>
+    var listDivChild = document.getElementById('div1').childNodes;
+    var numChild = listDivChild.length;
+    function countP() {
+      var counter = 0;
+      for(var i=0; i<numChild; i++) {
+        if(listDivChild[i].nodeName.toLowerCase() === 'p') {
+          counter++;
+        }
+      }
+      alert(counter);
+    }
+
+    function countImg() {
+      var counter = 0;
+      for(var i=0; i<numChild; i++) {
+        if(listDivChild[i].nodeName.toLowerCase() === 'img') {
+          counter++;
+        }
+      }
+      alert(counter);
+    }
+  </script>
+</body>
+</html>

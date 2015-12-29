@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="div1" class="div-format">
+    <p>I'm the first child</p>  
+    <p>I'm the second child</p>
+  </div>
+  <input type="button" value="Insert at the end" onCLick="insertAtEnd();">
+  <input type="button" value="Insert at the top" onClick="insertAtTop();">
+  <input type="button" value="Remove added node" onClick="removeNode();">
+
+  <script>
+    //Placing new nodes in the page
+    //Creating nodes
+
+    //element node
+    var nodeToAdd = document.createElement('p');
+    nodeToAdd.setAttribute('class', 'div-special');
+
+    //text node
+    var textToAdd = document.createTextNode('Hi there, I am the new child!');
+
+    //adding the text node to the new element node
+    nodeToAdd.appendChild(textToAdd);
+
+    //inserting the new element at the end of the div "div1"
+    var divElem = document.getElementById('div1');
+    function insertAtEnd() {
+      divElem.appendChild(nodeToAdd);
+    }
+
+    //inserting the new element at the top of the div "div1"
+    function insertAtTop() {
+      divElem.insertBefore(nodeToAdd, divElem.firstChild);
+    }
+
+    function removeNode() {
+      var listChildren = divElem.childNodes;
+      var found = false;
+      for(var i=0; i<listChildren.length; i++) {
+        if(listChildren[i].className === 'div-special') {
+          divElem.removeChild(listChildren[i]);
+          found = true;
+          break;
+        }
+      }
+      if(!found) {
+        alert('The node was not inserted yet');
+      }
+    }
+  </script>
+</body>
+</html>

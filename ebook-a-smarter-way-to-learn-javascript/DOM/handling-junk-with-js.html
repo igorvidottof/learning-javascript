@@ -1,0 +1,61 @@
+<!DOCTYPE html> <!-- parent of html -->
+<html lang="en"> <!-- parent of head and body -->
+<head> <!-- parent of meta and title --> 
+  <meta charset="UTF-8">
+  <title>Document</title> <!-- title is parent of "Document" -->
+  <link rel="stylesheet" href="style.css">
+  </style>
+</head>
+<body> <!-- parent of div("cal") and div("ny") -->
+  <div id="cal" class="div-format"> <!-- parent of the first three p's -->
+    <p>Southern Cal is sunny.</p>
+    <p>Northern Cal is rainy.</p>
+    <p>Eastern Cal is desert.</p>
+  </div>
+  <div id="ny" class="div-format"> <!-- parent of the  parents of the last two p's -->
+    <p>Urban NY is crowded.</p>
+    <p>Rural NY is sparse.</p>
+  </div>
+  
+  <div id="all-nodes"></div>
+
+  <input type="button" value="Show Last Paragraph" onClick="showLastP();">
+  <input type="button" value="Check All Nodes" onClick="checkNodes();">
+
+  <script>
+    // Another way to handle this would be with the javascript's attribute "nodeType", which returns a number that represents if a node is an element or text. it returns 1 for an element and 3 for a text.
+    function showLastP() {
+      var divE = document.getElementById('ny');
+      var counter = 0;
+      for(var i=0; i<divE.childNodes.length; i++) {
+        if(divE.childNodes[i].nodeType === 1) { //if the childNode is an element increment the counter
+          counter++; 
+        }
+        if(counter === 2) { //when the counter hits 2 we capture the value of the child node
+          var lastP = divE.childNodes[i].innerHTML;
+          alert(lastP);
+          break;
+        }
+      }
+    }
+  
+    function checkNodes() {
+      var divNy = document.getElementById('ny');
+      var divRes = document.getElementById('all-nodes');
+      divRes.className = 'div-format';
+      divRes.innerHTML = '<h1>All nodes in the div above</h1>';
+      for (var i=0; i<divNy.childNodes.length; i++) {
+        if(divNy.childNodes[i].nodeType !== 1) {
+          divRes.innerHTML += '<p class="negative">' + divNy.childNodes[i].innerHTML + ' &rarr; junk</p>';
+        }
+        else {
+          divRes.innerHTML += '<p>' + divNy.childNodes[i].innerHTML + '</p>';
+        }
+      }
+      divRes.innerHTML += 'Total of nodes: ' + divNy.childNodes.length;
+
+    }
+  </script>
+</body>
+</html>
+

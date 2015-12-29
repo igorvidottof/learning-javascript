@@ -1,0 +1,35 @@
+<!DOCTYPE html> <!-- parent of html -->
+<html lang="en"> <!-- parent of head and body -->
+<head> <!-- parent of meta and title --> 
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css"> <!-- title is parent of "Document" -->
+</head>
+<body> <!-- parent of div("cal") and div("ny") -->
+  <div id="cal" class="div-format"> <!-- parent of the first three p's -->
+    <p>Southern Cal is sunny.</p>
+    <p>Northern Cal is rainy.</p>
+    <p>Eastern Cal is desert.</p>
+  </div>
+  <div id="ny" class="div-format"> <!-- parent of the  parents of the last two p's -->
+    <p>Urban NY is crowded.</p>
+    <p>Rural NY is sparse.</p>
+  </div>
+
+  <input type="button" value="Show Last Paragraph" onClick="showLastP();">
+
+  <script>
+    // Another way to target elements is target them by the DOM hierarchy. (supposing that there are no junk artifacts)
+    // junk artifacts are just the spaces and tabs we use to format our code, most browsers get them as text nodes, causing a big trouble.
+    function showLastP() {
+      var textLastP = document.childNodes[0].childNodes[1].childNodes[1].childNodes[1];
+      var contentP = textLastP.innerHTML;
+      alert(contentP);
+    }
+    /* 
+    so here this code won't work, logically, because there are a lot of spaces formatting it. 
+    To handle this we could either minify the HTML code, of course maintaining a non-minified document to perform maintenance and change things or with Javascript.
+    */
+  </script>
+</body>
+</html>

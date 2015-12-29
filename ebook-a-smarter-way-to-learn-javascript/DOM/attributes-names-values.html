@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <img id="img-sheldon" src="../img/after-pic.png" height="300" width="350" alt="Image Sheldon" title="Sheldon OS">
+  <div id="div-results" class="div-special">
+    <h1>Results</h1>
+  </div>
+
+  <input type="button" value="Count Attributes" onClick="countAttr();">
+  <input type="button" value="Show Attributes" onClick="showAttr();">
+  
+  <script>
+    //making an array of all attributes of a specific tag
+    var imgSheldon = document.getElementById('img-sheldon');
+    var listAttr = imgSheldon.attributes;
+    var divRes = document.getElementById('div-results');
+
+    function countAttr() {
+      divRes.innerHTML += '<h2>Total Attributes</h2>';
+      divRes.innerHTML += listAttr.length;
+    }
+
+    //We can work with nodeName and nodeValue to find out the characteristics of the attributes
+    function showAttr() {
+      divRes.innerHTML += '<h2>Attributes</h2>';
+      var tableAttr = '<table border="1"><tr><th>Name</th><th>Value</th></tr>';
+      for(var i=0; i<listAttr.length; i++) {
+        tableAttr += '<tr><td>' + listAttr[i].nodeName + '</td>' +  '<td>' + listAttr[i].nodeValue + '</td></tr>';
+      }
+      tableAttr += '</table>';
+      divRes.innerHTML += tableAttr;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="div1" class="div-format">
+    <p id="firstP">text 1</p>
+    <p>text 2</p>
+    <p>text 3</p>
+  </div>  
+
+  <div id="results" class="div-special">
+    <h1>Results</h1>
+  </div>
+
+  <script>
+    var divRes = document.getElementById('results');
+    //getting node names
+    (function getNodeName() {
+      var divElem = document.getElementById('div1');
+      divRes.innerHTML += divElem.nodeName + '<br>'; //name of the element itself
+      divRes.innerHTML += divElem.firstChild.nodeName + '<br>'; //name of the first child of the element div
+    })();
+    /*if the node is a text node or a junk artifact the nodeName will always return #text
+      Generally the name of an element is given in all-caps
+    */
+
+    //getting node values
+    (function getNodeValue() {
+      var pgraphElem = document.getElementById('firstP');
+      divRes.innerHTML += pgraphElem.nodeValue + '<br>'; //an element doesn't have this property (actually it's null) 
+      divRes.innerHTML += pgraphElem.firstChild.nodeValue + '<br>'; //return the text
+    })();
+
+    //When testing node names it's a good practice to standardize the case of the letters.
+    (function testNodeName(){
+      var divElem = document.getElementById('div1');
+      divRes.innerHTML += divElem.nodeName + '<br>';
+      if(divElem.nodeName.toLowerCase() === 'div') {
+        divRes.innerHTML += 'Got it!';
+      }
+    })();
+
+  </script>
+</body>
+</html>

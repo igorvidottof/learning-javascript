@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="div1" class="div-format">I'm a div element</div>
+  <div id="results" class="div-special">
+    <h1>Results</h1>
+  </div>
+  <script>
+    var divRes = document.getElementById('results');
+    var divElem = document.getElementById('div1');
+    //to verify whether an element has a particular attribute we use the function hasAttribute('nameOfAttr');
+    var hasClass = function() {
+      var elemHasClass = divElem.hasAttribute('class');
+      divRes.innerHTML += elemHasClass;
+      return elemHasClass;
+    }();
+
+    (function readClass(hasClass){
+      if(hasClass) {
+        divRes.innerHTML += '<br>' + divElem.getAttribute('class'); // gets the value of the attribute
+      }
+    })(hasClass);
+
+    //setting an attribute
+    (function changeBackground(){
+      divElem.setAttribute('style', 'background: silver');
+    })();
+  </script>
+</body>
+</html>

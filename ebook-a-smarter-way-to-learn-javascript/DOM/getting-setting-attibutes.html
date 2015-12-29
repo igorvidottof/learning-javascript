@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="div1" class="div-format">
+    <p>Hi</p>
+    <p>Hello</p>
+  </div>
+  
+  <div id="results" class="div-format">
+    <h1>Results</h1>
+  </div>
+  
+  <script>
+    var divRes = document.getElementById('results');
+    //finding out whether an element has a particular attribute - .hasAttribute('attr'); - returns a boolean.
+    (function peekAtElement() {
+      var element = document.getElementById('div1');
+      divRes.innerHTML += element.hasAttribute('class');
+    })();
+
+  </script>
+</body>
+</html>
