@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <img id="before-pic" src="https://raw.githubusercontent.com/igorvidottof/learning-javascript/master/ebook-a-smarter-way-to-learn-javascript/img/before-pic.png" alt="Sheldon Ubuntu" width="420px" height="300px">
+
+  <script>
+    var prevImg = document.getElementById('before-pic');
+    prevImg.onmouseover = swapPic;
+
+    function swapPic() {
+      prevImg.setAttribute('src', 'https://raw.githubusercontent.com/igorvidottof/learning-javascript/master/ebook-a-smarter-way-to-learn-javascript/img/after-pic.png'); 
+    }
+  </script>
+</body>
+</html>
