@@ -1,5 +1,6 @@
 'use strict';
 
+// First Solution
 function titleCase(str) {
   var newStr = '';
   str = str.split(' '); // turn the string into an array
@@ -17,6 +18,14 @@ function titleCase(str) {
     }
   }
   return newStr;
+}
+
+// Second Solution
+function titleCase(str) {
+  return str.toLowerCase().split(' ').map(function(val) { // loop through the array
+    var firstLetter = val.substr(0, 1); 
+    return val.replace(firstLetter, firstLetter.toUpperCase()); // return an array
+  }).join(' '); // join the array returned by the map function
 }
 
 // test
