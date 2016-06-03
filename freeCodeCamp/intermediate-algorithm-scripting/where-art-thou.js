@@ -1,7 +1,7 @@
+// First solution
 function whereAreYou(collection, source) {
-  // What's in a name?
   var arr = [];
-  // Only change code below this line
+  
   var sourceKeys = Object.keys(source);
   var cont = 0;
 
@@ -19,9 +19,20 @@ function whereAreYou(collection, source) {
     }
   });  
   
-  // Only change code above this line
   return arr;
 }
+
+// Second solution
+function whereAreYou(collection, source) {
+  var sourceKeys = Object.keys(source);
+
+  return collection.filter(function(obj) {
+    return sourceKeys.every(function(key) { 
+      return obj[key] === source[key];
+    });
+  });
+}
+
 
 // tests
 console.log(whereAreYou([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" }));
