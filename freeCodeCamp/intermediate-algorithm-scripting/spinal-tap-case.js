@@ -1,5 +1,6 @@
 'use strict';
 
+// first solution
 function spinalCase(str) {
   var regex = /[a-z][A-Z]/g;
   var regex2 = /[\s_]/g;
@@ -14,6 +15,14 @@ function spinalCase(str) {
   return str.replace(regex2, '-').toLowerCase();
 }
 
+// second solution
+function spinalCase(str){
+  var regex = /\s+|_+/g;
+  str = str.replace(/([a-z])([A-Z])/g, '$1 $2');
+  return str.replace(regex, '-').toLowerCase();
+}
+
+// tests
 console.log(spinalCase('This Is Spinal Tap'));
 console.log(spinalCase("thisIsSpinalTap"));
 console.log(spinalCase("The_Andy_Griffith_Show"));
